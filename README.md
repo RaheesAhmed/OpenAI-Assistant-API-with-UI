@@ -31,7 +31,7 @@ cd backend:
 npm install
 ```
 
-<<<<<<< HEAD
+
 2. Install dependencies:
 
    ```
