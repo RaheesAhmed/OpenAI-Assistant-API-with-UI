@@ -46,13 +46,6 @@ const Chat = () => {
     }
   };
 
-  const handleKeyPress = (event: KeyboardEvent<HTMLTextAreaElement>) => {
-    if (event.key === "Enter" && !event.shiftKey) {
-      event.preventDefault();
-      sendMessage(event);
-    }
-  };
-
   const handleFileUpload = async (event) => {
     const file = event.target.files[0];
     if (!file) return;
@@ -67,6 +60,18 @@ const Chat = () => {
   const openFileExplorer = () => {
     fileInputRef.current.click();
   };
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter" && !event.shiftKey) {
+      // When Enter is pressed without Shift, send the message
+      event.preventDefault();
+      sendMessage(event);
+    } else if (event.key === "Enter" && event.shiftKey) {
+      // When Shift + Enter is pressed, add a new line
+      // The default behavior of Shift + Enter is to add a new line,
+      // so you don't need to explicitly handle it.
+    }
+  };
+
   return (
     <div className="flex items-center justify-center h-screen bg-gray-900">
       <Sidebar />
@@ -74,7 +79,7 @@ const Chat = () => {
         <div className="flex flex-col w-3/4 h-full mr-4">
           <div className="text-white rounded-lg p-6 flex flex-col h-full">
             <div className="font-bold text-3xl text-center mb-4">
-              Your AI Murder Mystery Agent
+              Your AI Assistant
             </div>
             <div
               className="flex-1 overflow-auto p-4 rounded-lg flex-1 overflow-auto p-4 rounded-lg chat-message-container"
@@ -126,6 +131,7 @@ const Chat = () => {
                 <textarea
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
+                  onKeyDown={handleKeyDown}
                   placeholder="Enter a prompt here"
                   className="w-full pl-12 pr-12 p-4 rounded-lg bg-gray-900 border border-white text-white overflow-hidden"
                   style={{ minHeight: "30px", maxHeight: "250px" }}

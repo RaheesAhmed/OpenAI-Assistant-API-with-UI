@@ -2,6 +2,10 @@
 
 This project is an Express.js server integrated with OpenAI's API. It includes features such as file uploading, creating and managing an OpenAI assistant, and handling chat interactions using the assistant.
 
+![alt text](./design-images/screenshot.PNG)
+
+![alt text](./design-images/chat-design.PNG)
+
 ## Introduction
 
 The server is designed to interact with OpenAI's API, providing an interface for chat functionalities and file management. It uses `multer` for handling file uploads, `body-parser` and `cors` for middleware support, and `dotenv` for environment variable management.
@@ -17,8 +21,15 @@ To get started with this project, follow these steps:
    ```
 
 2. Install dependencies:
+
    ```
    npm install
+   ```
+
+   if npm install is not working try to install pacakes:
+
+   ```
+   npm install --save @fortawesome/fontawesome-svg-core @fortawesome/free-solid-svg-icons @fortawesome/react-fontawesome
    ```
 
 Create a `.env` file in the root directory and add your OpenAI API key:
@@ -27,13 +38,11 @@ Create a `.env` file in the root directory and add your OpenAI API key:
 3. Starting the Server
    Run the server using the following command:
 
-   ````
+   ```
    npm start
-    ```
+   ```
+
    This will start the server on the default port 3000 or on a port specified in the .env file.
-
-
-   ````
 
 # API Endpoints
 
