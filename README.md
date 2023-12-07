@@ -37,14 +37,7 @@ npm install
    ```
    npm install
    ```
-=======
->>>>>>> 01f066de12f7b6efec4de8c4f2621483cd82ee36
 
-   if npm install is not working try to install pacakes:
-
-   ```
-   npm install --save @fortawesome/fontawesome-svg-core @fortawesome/free-solid-svg-icons @fortawesome/react-fontawesome
-   ```
 
 Create a `.env` file in the root directory and add your OpenAI API key:
 ` OPENAI_API_KEY=your_api_key_here`
